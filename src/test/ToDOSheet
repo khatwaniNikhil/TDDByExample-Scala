@@ -1,0 +1,29 @@
+$5 + 10 CHF = $10 if rate is 2:1
+$5 * 2 = $10..done
+	round off
+	dollar side-effects...done
+	make amount private...done
+Dollar - 
+ equals...
+   Dollars with Francs
+   null boundary cases ? 
+ hashcode ?	
+ Remove duplication: equals and times method
+Instead of Dollar, Franc..Why not Currency class
+  To remove Dollar/Franc subclasses...is not a single step. 
+  Start from removing subclass references from client code. 
+  Test cases gives us the feeler how client will access the code(leave assertions).
+  Try to avoid refer sub classes directly
+  Start thinking around currency class
+  
+Currency String constants  
+    
+Notes:
+1) Doing TDD: Write a test
+              Make it Run
+              Make it Right
+              Remove any code duplicacy
+2) TDD tricks:
+    Fake it 
+    Obvious Implementation
+     
