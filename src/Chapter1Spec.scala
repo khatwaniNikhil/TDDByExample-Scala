@@ -27,4 +27,38 @@ class Chapter1Spec extends FlatSpec with Matchers {
 	  dollar.currency.equals("Franc") shouldBe(false)
 	  franc.currency.equals("Franc") shouldBe(true)
 	}
+	
+//	"Addition of Currency" should "return correct sum" in {
+//		val threeDollar = Money.dollar(3)
+//		val twelveDollar = Money.dollar(12)
+//		threeDollar.plus(twelveDollar).equals(Money.dollar(15)) shouldBe(true)
+//		
+//		// bank to apply exchange rates to reduce an expression of "dollars and francs" into common currency let say dollar
+//		val sumExpression = threeDollar.plus(twelveDollar)
+//		val reduced: Money = new Bank().reduce(sumExpression, "USD")
+//		reduced.equals(Money.dollar(15)) shouldBe(true)
+//		
+//		
+//	}
+	
+	"plus method" should "return correct expression" in {
+	  val threeDollar = Money.dollar(3)
+	  val sevenDollar = Money.dollar(7)
+	  val sumExpression = threeDollar.plus(sevenDollar).asInstanceOf[Sum]
+	  sumExpression.augend.amount.equals(3) shouldBe(true)
+	  sumExpression.addend.amount.equals(7) shouldBe(true)
+	}
+	  
+	"reduce Money" should "work correctly" in {
+	  val threeDollar = Money.dollar(3)
+	  new Bank().reduce(threeDollar, "Dollar").equals(Money.dollar(3)) shouldBe(true)
+	}
+	
+	"reduce Money to diff. currency" should "work correctly" in {
+	  val tenFranc = Money.franc(10)
+      val bank = new Bank()
+	  bank.addRate("Franc", "Dollar", 2)
+	  bank.reduce(tenFranc, "Dollar").equals(Money.dollar(5)) shouldBe(true)
+
+	}
 }

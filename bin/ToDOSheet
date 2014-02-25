@@ -1,14 +1,14 @@
-$5 + 10 CHF = $10 if rate is 2:1
-$5 * 2 = $10..done
+Addition diff. currencies
+	$5 + 10 CHF = $10 if rate is 2:1
+
+$5 * 2 = $10
 	round off
-	dollar side-effects...done
-	make amount private...done
-Dollar - 
- equals...
-   Dollars with Francs
-   null boundary cases ? 
- hashcode ?	
- Remove duplication: equals and times method
+	
+Dollars with Francs 
+ equals
+ hashcode  
+ null boundary cases ? 
+  	
 Instead of Dollar, Franc..Why not Currency class
   To remove Dollar/Franc subclasses...is not a single step. 
   Start from removing subclass references from client code. 
